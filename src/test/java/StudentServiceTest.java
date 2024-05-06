@@ -10,15 +10,18 @@ public class StudentServiceTest {
 
     StudentService studentService = new StudentService();
     Student student1 = null;
+    Student student2 = null;
+    Student student3 = null;
+    Student student4 = null;
 
     @BeforeEach
     void SetUp() {
         StudentService studentService = new StudentService();
 
-        Student student1 = studentService.addNewStudent(new Student("0", "Aljoscha", "Java"));
-        Student student2 = studentService.addNewStudent(new Student("0", "Gökhan", "Java"));
-        Student student3 = studentService.addNewStudent(new Student("0", "Jonas", "Java"));
-        Student student4 = studentService.addNewStudent(new Student("0", "Daniel", "Java"));
+        student1 = studentService.addNewStudent(new Student("0", "Aljoscha", "Java"));
+        student2 = studentService.addNewStudent(new Student("0", "Gökhan", "Java"));
+        student3 = studentService.addNewStudent(new Student("0", "Jonas", "Java"));
+        student4 = studentService.addNewStudent(new Student("0", "Daniel", "Java"));
     }
 
     @AfterEach
@@ -28,12 +31,12 @@ public class StudentServiceTest {
     }
 
     @Test
-    void test_findById_WhenId1_ReturnStudentWithId1() {
+    void test_findById_WhenStudent1Id_ReturnStudent1() {
         // GIVEN
-        String studentId = student1.id();
+        String student1Id = student1.id();
 
         // WHEN
-        Student actual = studentService.findById(studentId);
+        Student actual = studentService.findById(student1Id);
 
         // THEN
         Student expected = student1;
