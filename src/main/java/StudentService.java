@@ -13,16 +13,12 @@ public class StudentService {
         return repo.save(studentToSave);
     }
 
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return repo.getAllStudents();
     }
 
     public Student findById(String id) {
-        Optional<Student> student = repo.findStudentById(id);
-        if (student.isEmpty()) {
-            throw new NoSuchStudentException();
-        } else {
-            return student.get();
-        }
+        return repo.findStudentById(id).orElseThrow(() -> new NoSuchStudentException("Student with id " + id + " could not be found."));
+
     }
 }

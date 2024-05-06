@@ -48,6 +48,8 @@ public class StudentServiceTest {
         // GIVEN
         String studentId = "abc";
 
-        assertThrows(NoSuchStudentException.class, () -> studentService.findById(studentId));
+        NoSuchStudentException exception = assertThrows(NoSuchStudentException.class, () -> studentService.findById(studentId));
+
+        assertEquals("Student with id abc could not be found.", exception.getMessage());
     }
 }
