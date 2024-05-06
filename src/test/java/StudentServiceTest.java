@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class StudentServiceTest {
 
-    StudentService studentService = new StudentService();
+    StudentService studentService = null;
     Student student1 = null;
     Student student2 = null;
     Student student3 = null;
@@ -16,7 +16,7 @@ public class StudentServiceTest {
 
     @BeforeEach
     void SetUp() {
-        StudentService studentService = new StudentService();
+        studentService = new StudentService();
 
         student1 = studentService.addNewStudent(new Student("0", "Aljoscha", "Java"));
         student2 = studentService.addNewStudent(new Student("0", "Gökhan", "Java"));
